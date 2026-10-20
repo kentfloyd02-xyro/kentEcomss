@@ -172,7 +172,7 @@
       const token = localStorage.getItem("ecoms_session_token");
 
       const adminUrl = (window.ECOMS_CONFIG && window.ECOMS_CONFIG.ADMIN_URL) ||
-          ((window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost") ? `http://${apiHost}:3000/api/admin` : "https://ecoms-api.onrender.com/api/admin");
+          ((window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost") ? `http://${apiHost}:3000/api/admin` : "https://ecoms-api-ajz5.onrender.com/api/admin");
 
       fetch(`${adminUrl}/orders/status-counts`, {
           headers: {

@@ -9,7 +9,7 @@
      * You can customize the DEFAULT_RENDER_API below, OR change it anytime without redeploying
      * by running in browser console: localStorage.setItem('ECOMS_API_URL', 'https://your-api.onrender.com/api')
      */
-    const DEFAULT_RENDER_API = "https://ecoms-api.onrender.com/api";
+    const DEFAULT_RENDER_API = "https://ecoms-api-ajz5.onrender.com/api";
 
     const isLocal = Boolean(
         window.location.hostname === "localhost" ||

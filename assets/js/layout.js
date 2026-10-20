@@ -75,7 +75,7 @@ async function syncNavCartBadge() {
         if (token) headers["Authorization"] = `Bearer ${token}`;
 
         const shopUrl = (window.ECOMS_CONFIG && window.ECOMS_CONFIG.SHOP_URL) ||
-            ((window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost") ? `http://${apiHost}:3000/api/shop` : "https://ecoms-api.onrender.com/api/shop");
+            ((window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost") ? `http://${apiHost}:3000/api/shop` : "https://ecoms-api-ajz5.onrender.com/api/shop");
         const res = await fetch(`${shopUrl}/cart`, {
             method: "GET",
             credentials: "include",
@@ -302,7 +302,7 @@ function setupLogout() {
             if (token) headers["Authorization"] = `Bearer ${token}`;
 
             const authUrl = (window.ECOMS_CONFIG && window.ECOMS_CONFIG.AUTH_URL) ||
-                ((window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost") ? `http://${apiHost}:3000/api/auth` : "https://ecoms-api.onrender.com/api/auth");
+                ((window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost") ? `http://${apiHost}:3000/api/auth` : "https://ecoms-api-ajz5.onrender.com/api/auth");
             const response = await fetch(`${authUrl}/logout`, {
                 method: "POST",
                 credentials: "include",
@@ -583,7 +583,7 @@ document.addEventListener("click", async function(event) {
         if (token) headers["Authorization"] = `Bearer ${token}`;
 
         const authUrl = (window.ECOMS_CONFIG && window.ECOMS_CONFIG.AUTH_URL) ||
-            ((window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost") ? `http://${apiHost}:3000/api/auth` : "https://ecoms-api.onrender.com/api/auth");
+            ((window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost") ? `http://${apiHost}:3000/api/auth` : "https://ecoms-api-ajz5.onrender.com/api/auth");
         const response = await fetch(`${authUrl}/logout`, {
             method: "POST",
             credentials: "include",

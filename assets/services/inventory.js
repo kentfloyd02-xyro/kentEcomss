@@ -1,7 +1,7 @@
 // const API_HOST = window.location.hostname === "127.0.0.1" ? "127.0.0.1" : (window.location.hostname || "localhost");
 const API_HOST = window.location.hostname === "127.0.0.1" ? "127.0.0.1" : (window.location.hostname || "localhost");
 const API_URL = (window.ECOMS_CONFIG && window.ECOMS_CONFIG.INVENTORY_URL) ||
-    ((window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost") ? `http://${API_HOST}:3000/api/inventory` : "https://ecoms-api.onrender.com/api/inventory");
+    ((window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost") ? `http://${API_HOST}:3000/api/inventory` : "https://ecoms-api-ajz5.onrender.com/api/inventory");
 
 let inventory = [];
 let editingId = null;

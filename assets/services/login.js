@@ -1,6 +1,6 @@
 const API_HOST = window.location.hostname === "127.0.0.1" ? "127.0.0.1" : (window.location.hostname || "localhost");
 const API_BASE_URL = (window.ECOMS_CONFIG && window.ECOMS_CONFIG.AUTH_URL) ||
-    ((window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost") ? `http://${API_HOST}:3000/api/auth` : "https://ecoms-api.onrender.com/api/auth");
+    ((window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost") ? `http://${API_HOST}:3000/api/auth` : "https://ecoms-api-ajz5.onrender.com/api/auth");
 
 const loginForm = document.getElementById("loginForm");
 const usernameInput = document.getElementById("username");

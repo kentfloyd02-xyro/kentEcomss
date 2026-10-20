@@ -3,11 +3,11 @@
 
     const API_HOST = window.location.hostname === "127.0.0.1" ? "127.0.0.1" : (window.location.hostname || "localhost");
     const API_ADMIN = (window.ECOMS_CONFIG && window.ECOMS_CONFIG.ADMIN_URL) ||
-        ((window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost") ? `http://${API_HOST}:3000/api/admin` : "https://ecoms-api.onrender.com/api/admin");
+        ((window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost") ? `http://${API_HOST}:3000/api/admin` : "https://ecoms-api-ajz5.onrender.com/api/admin");
     const API_REPORTS = (window.ECOMS_CONFIG && window.ECOMS_CONFIG.REPORTS_URL) ||
-        ((window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost") ? `http://${API_HOST}:3000/api/reports` : "https://ecoms-api.onrender.com/api/reports");
+        ((window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost") ? `http://${API_HOST}:3000/api/reports` : "https://ecoms-api-ajz5.onrender.com/api/reports");
     const BACKEND_HOST = (window.ECOMS_CONFIG && window.ECOMS_CONFIG.BACKEND_HOST) ||
-        ((window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost") ? `http://${API_HOST}:3000` : "https://ecoms-api.onrender.com");
+        ((window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost") ? `http://${API_HOST}:3000` : "https://ecoms-api-ajz5.onrender.com");
 
     function getAuthHeaders(extra = {}) {
         const token = localStorage.getItem("ecoms_session_token");
