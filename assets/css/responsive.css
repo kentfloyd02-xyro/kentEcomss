@@ -1,0 +1,401 @@
+/**
+ * ECOMS Universal Responsive Stylesheet
+ * Ensures seamless viewing and interaction across Mobile, Tablet, Laptop, and Desktop
+ */
+
+/* =========================================================
+   1. GLOBAL RESETS & VIEWPORT STABILITY
+   ========================================================= */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+/* Momentum scrolling for all scroll containers on iOS/Android */
+.table-responsive,
+.scroll-wrapper,
+.sidebar-offcanvas,
+.modal-body {
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Avoid unwanted iOS Safari zoom on focus by ensuring 16px font on small screens */
+@media (max-width: 767.98px) {
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="number"],
+    input[type="tel"],
+    select.form-select,
+    textarea.form-control {
+        font-size: 16px !important;
+    }
+}
+
+/* =========================================================
+   2. NAVBAR & TOP HEADER RESPONSIVENESS
+   ========================================================= */
+.navbar .navbar-brand-wrapper {
+    transition: width 0.3s ease;
+}
+
+@media (max-width: 991.98px) {
+    .navbar .navbar-brand-wrapper {
+        width: 140px !important;
+    }
+
+    .navbar .navbar-brand-wrapper .brand-logo {
+        display: inline-block !important;
+    }
+
+    .navbar .navbar-brand-wrapper .brand-logo img {
+        height: 32px;
+        width: auto;
+    }
+
+    .navbar .navbar-brand-wrapper .brand-logo-mini {
+        display: none !important;
+    }
+
+    .navbar .navbar-menu-wrapper {
+        width: calc(100% - 140px) !important;
+        padding-left: 10px;
+        padding-right: 15px;
+    }
+
+    /* Offcanvas sidebar styles */
+    .sidebar-offcanvas {
+        position: fixed !important;
+        top: 60px !important;
+        bottom: 0 !important;
+        right: -300px !important;
+        width: 280px !important;
+        max-width: 85vw !important;
+        z-index: 1050 !important;
+        background: #ffffff;
+        box-shadow: -6px 0 25px rgba(0, 0, 0, 0.25) !important;
+        transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        overflow-y: auto !important;
+    }
+
+    .sidebar-offcanvas.active {
+        right: 0 !important;
+    }
+
+    /* Dark backdrop overlay when mobile sidebar is open */
+    body.sidebar-mobile-open {
+        overflow: hidden !important;
+    }
+
+    body.sidebar-mobile-open::after {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(2px);
+        z-index: 1040;
+        pointer-events: auto;
+    }
+
+    /* Profile dropdown stays inside screen */
+    .navbar .navbar-nav .dropdown-menu {
+        position: absolute !important;
+        right: 0 !important;
+        left: auto !important;
+        min-width: 200px;
+        border-radius: 10px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+}
+
+@media (max-width: 575.98px) {
+    .navbar .navbar-brand-wrapper {
+        width: 110px !important;
+    }
+
+    .navbar .navbar-brand-wrapper .brand-logo img {
+        height: 26px;
+    }
+
+    .navbar .navbar-menu-wrapper {
+        width: calc(100% - 110px) !important;
+        padding-left: 6px;
+        padding-right: 10px;
+    }
+
+    .navbar .navbar-nav-right .nav-profile img {
+        width: 32px;
+        height: 32px;
+    }
+
+    .navbar-toggler {
+        padding: 4px 6px;
+        font-size: 1.1rem;
+    }
+}
+
+/* =========================================================
+   3. CONTENT LAYOUT & DASHBOARD GRIDS
+   ========================================================= */
+@media (max-width: 991.98px) {
+    .main-panel {
+        width: 100% !important;
+        transition: none !important;
+    }
+
+    .content-wrapper {
+        padding: 1.25rem 1rem !important;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .content-wrapper {
+        padding: 1rem 0.75rem !important;
+    }
+
+    .card .card-body {
+        padding: 1rem 0.85rem !important;
+    }
+
+    /* Headings on mobile */
+    h3, .h3 {
+        font-size: 1.35rem;
+    }
+
+    h4, .h4, .card-title {
+        font-size: 1.15rem !important;
+    }
+
+    h5, .h5 {
+        font-size: 1.05rem;
+    }
+
+    /* Buttons touch targets */
+    .btn {
+        min-height: 38px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* =========================================================
+   4. DATATABLES & TABLE RESPONSIVENESS
+   ========================================================= */
+.table-responsive {
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.table-responsive::-webkit-scrollbar {
+    height: 6px;
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+    background: #cbb3a3;
+    border-radius: 4px;
+}
+
+@media (max-width: 767.98px) {
+    /* DataTables controls re-stacking */
+    div.dataTables_wrapper div.dataTables_length,
+    div.dataTables_wrapper div.dataTables_filter {
+        text-align: left !important;
+        float: none !important;
+        width: 100% !important;
+        margin-bottom: 0.75rem !important;
+    }
+
+    div.dataTables_wrapper div.dataTables_filter input {
+        width: 100% !important;
+        margin-left: 0 !important;
+        margin-top: 4px !important;
+        display: block !important;
+    }
+
+    div.dataTables_wrapper div.dataTables_info,
+    div.dataTables_wrapper div.dataTables_paginate {
+        text-align: center !important;
+        float: none !important;
+        width: 100% !important;
+        margin-top: 0.75rem !important;
+    }
+
+    div.dataTables_wrapper div.dataTables_paginate ul.pagination {
+        justify-content: center !important;
+        flex-wrap: wrap;
+        gap: 3px;
+    }
+
+    .table th,
+    .table td {
+        padding: 0.65rem 0.5rem !important;
+        font-size: 12.5px;
+    }
+
+    .table td .badge {
+        font-size: 10.5px;
+        padding: 3px 6px;
+    }
+}
+
+/* =========================================================
+   5. CATALOG PRODUCT CARDS & USER DASHBOARD
+   ========================================================= */
+@media (max-width: 575.98px) {
+    #catalogGrid .col-sm-6 {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    #catalogGrid .card img {
+        max-height: 140px;
+    }
+
+    /* Quick stat cards on User Dashboard */
+    .quick-stat-row {
+        gap: 10px;
+    }
+}
+
+/* =========================================================
+   6. MODAL RESPONSIVENESS (WAYBILL, CANCEL ORDER, RESTOCK)
+   ========================================================= */
+@media (max-width: 767.98px) {
+    .modal-dialog {
+        margin: 0.75rem auto;
+        max-width: calc(100% - 1.5rem);
+    }
+
+    .modal-dialog-centered {
+        min-height: calc(100% - 1.5rem);
+    }
+
+    .modal-content {
+        border-radius: 12px;
+    }
+
+    .modal-header,
+    .modal-footer {
+        padding: 0.75rem 1rem;
+    }
+
+    .modal-body {
+        padding: 1rem;
+        max-height: calc(85vh - 120px);
+        overflow-y: auto;
+    }
+
+    /* Waybill printable sheet inside modal */
+    #waybillPrintArea {
+        padding: 12px !important;
+        font-size: 11px !important;
+    }
+
+    #waybillPrintArea .pill-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 6px !important;
+    }
+}
+
+/* =========================================================
+   7. AUTH SCREENS (LOGIN, REGISTER, OTP, FORGOT PASSWORD)
+   ========================================================= */
+@media (max-width: 768px) {
+    .card {
+        border-radius: 14px !important;
+        margin: 16px auto !important;
+        width: 100% !important;
+        max-width: 480px !important;
+        min-height: auto !important;
+    }
+
+    .left {
+        min-height: auto !important;
+        padding: 24px 20px !important;
+    }
+
+    .left .logo {
+        width: 160px !important;
+        max-width: 60vw !important;
+        margin-bottom: 4px !important;
+        transform: none !important;
+    }
+
+    .left .system-label {
+        font-size: 11px !important;
+        margin-bottom: 0 !important;
+        transform: none !important;
+    }
+
+    .left .quote {
+        display: none !important; /* Hide verbose quote on mobile to keep form visible */
+    }
+
+    .right, .right1, .right2 {
+        padding: 28px 20px !important;
+        width: 100% !important;
+    }
+
+    .form-group {
+        max-width: 100% !important;
+    }
+
+    .form-group input {
+        padding: 12px 14px !important;
+    }
+
+    .login-btn, #submitReg, .btn-submit-action {
+        width: 100% !important;
+        min-height: 44px !important;
+        font-size: 15px !important;
+    }
+}
+
+@media (max-width: 380px) {
+    body {
+        padding: 0 !important;
+    }
+
+    .card {
+        border-radius: 0 !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+        min-height: 100vh !important;
+    }
+
+    .left {
+        padding: 20px 14px !important;
+    }
+
+    .right, .right1, .right2 {
+        padding: 22px 16px !important;
+    }
+}
+
+/* =========================================================
+   8. CART & CHECKOUT PAGE RESPONSIVENESS
+   ========================================================= */
+@media (max-width: 991.98px) {
+    #cartTable th:nth-child(2),
+    #cartTable td:nth-child(2) {
+        /* Price column */
+        display: none;
+    }
+
+    .cart-qty-input {
+        width: 65px !important;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .btn-cancel-order {
+        font-size: 11px !important;
+        padding: 3px 6px !important;
+    }
+}
