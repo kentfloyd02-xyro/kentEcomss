@@ -171,7 +171,10 @@
       const apiHost = window.location.hostname === "127.0.0.1" ? "127.0.0.1" : (window.location.hostname || "localhost");
       const token = localStorage.getItem("ecoms_session_token");
 
-      fetch(`http://${apiHost}:3000/api/admin/orders/status-counts`, {
+      const adminUrl = (window.ECOMS_CONFIG && window.ECOMS_CONFIG.ADMIN_URL) ||
+          ((window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost") ? `http://${apiHost}:3000/api/admin` : "https://ecoms-api.onrender.com/api/admin");
+
+      fetch(`${adminUrl}/orders/status-counts`, {
           headers: {
               Accept: "application/json",
               ...(token ? { Authorization: `Bearer ${token}` } : {})

@@ -2,8 +2,10 @@
     "use strict";
 
     const API_HOST = window.location.hostname === "127.0.0.1" ? "127.0.0.1" : (window.location.hostname || "localhost");
-    const API_INVENTORY = `http://${API_HOST}:3000/api/inventory`;
-    const API_SHOP = `http://${API_HOST}:3000/api/shop`;
+    const API_INVENTORY = (window.ECOMS_CONFIG && window.ECOMS_CONFIG.INVENTORY_URL) ||
+        ((window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost") ? `http://${API_HOST}:3000/api/inventory` : "https://ecoms-api.onrender.com/api/inventory");
+    const API_SHOP = (window.ECOMS_CONFIG && window.ECOMS_CONFIG.SHOP_URL) ||
+        ((window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost") ? `http://${API_HOST}:3000/api/shop` : "https://ecoms-api.onrender.com/api/shop");
 
     function getAuthHeaders(extra = {}) {
         const token = localStorage.getItem("ecoms_session_token");

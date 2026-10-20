@@ -2,8 +2,12 @@
     "use strict";
 
     const API_HOST = window.location.hostname === "127.0.0.1" ? "127.0.0.1" : (window.location.hostname || "localhost");
-    const API_ADMIN = `http://${API_HOST}:3000/api/admin`;
-    const API_REPORTS = `http://${API_HOST}:3000/api/reports`;
+    const API_ADMIN = (window.ECOMS_CONFIG && window.ECOMS_CONFIG.ADMIN_URL) ||
+        ((window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost") ? `http://${API_HOST}:3000/api/admin` : "https://ecoms-api.onrender.com/api/admin");
+    const API_REPORTS = (window.ECOMS_CONFIG && window.ECOMS_CONFIG.REPORTS_URL) ||
+        ((window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost") ? `http://${API_HOST}:3000/api/reports` : "https://ecoms-api.onrender.com/api/reports");
+    const BACKEND_HOST = (window.ECOMS_CONFIG && window.ECOMS_CONFIG.BACKEND_HOST) ||
+        ((window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost") ? `http://${API_HOST}:3000` : "https://ecoms-api.onrender.com");
 
     function getAuthHeaders(extra = {}) {
         const token = localStorage.getItem("ecoms_session_token");
@@ -585,7 +589,7 @@
             tbody.innerHTML = reports.map(r => {
                 const dateStr = r.created_at ? new Date(r.created_at).toLocaleDateString() : "2026-09-14";
                 const isImg = /\.(png|jpg|jpeg|webp)$/i.test(r.file_name || "");
-                const fileLink = `http://${API_HOST}:3000/uploads/${encodeURIComponent(r.file_name)}`;
+                const fileLink = `${BACKEND_HOST}/uploads/${encodeURIComponent(r.file_name)}`;
 
                 const preview = isImg 
                     ? `<a href="${fileLink}" target="_blank" class="d-inline-flex align-items-center text-primary"><i class="ti-image me-1"></i> ${r.file_name}</a>`

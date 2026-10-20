@@ -74,7 +74,9 @@ async function syncNavCartBadge() {
         const headers = { Accept: "application/json" };
         if (token) headers["Authorization"] = `Bearer ${token}`;
 
-        const res = await fetch(`http://${apiHost}:3000/api/shop/cart`, {
+        const shopUrl = (window.ECOMS_CONFIG && window.ECOMS_CONFIG.SHOP_URL) ||
+            ((window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost") ? `http://${apiHost}:3000/api/shop` : "https://ecoms-api.onrender.com/api/shop");
+        const res = await fetch(`${shopUrl}/cart`, {
             method: "GET",
             credentials: "include",
             headers: headers
@@ -299,7 +301,9 @@ function setupLogout() {
             const headers = { Accept: "application/json" };
             if (token) headers["Authorization"] = `Bearer ${token}`;
 
-            const response = await fetch(`http://${apiHost}:3000/api/auth/logout`, {
+            const authUrl = (window.ECOMS_CONFIG && window.ECOMS_CONFIG.AUTH_URL) ||
+                ((window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost") ? `http://${apiHost}:3000/api/auth` : "https://ecoms-api.onrender.com/api/auth");
+            const response = await fetch(`${authUrl}/logout`, {
                 method: "POST",
                 credentials: "include",
                 headers: headers,
@@ -578,7 +582,9 @@ document.addEventListener("click", async function(event) {
         const headers = { Accept: "application/json" };
         if (token) headers["Authorization"] = `Bearer ${token}`;
 
-        const response = await fetch(`http://${apiHost}:3000/api/auth/logout`, {
+        const authUrl = (window.ECOMS_CONFIG && window.ECOMS_CONFIG.AUTH_URL) ||
+            ((window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost") ? `http://${apiHost}:3000/api/auth` : "https://ecoms-api.onrender.com/api/auth");
+        const response = await fetch(`${authUrl}/logout`, {
             method: "POST",
             credentials: "include",
             headers: headers,
