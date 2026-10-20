@@ -1,0 +1,105 @@
+<!-- User Transactions History Page -->
+<div class="row">
+    <div class="col-12 grid-margin">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <div>
+                <h4 class="font-weight-bold mb-1" style="color: #843800;">
+                    <i class="ti-receipt me-2"></i>My Transactions
+                </h4>
+                <p class="text-muted mb-0">Record of all completed orders, payment methods, and tracking numbers.</p>
+            </div>
+            <a href="main.html?page=Dashboard" class="btn btn-outline-primary btn-sm">
+                <i class="ti-arrow-left me-1"></i> Browse Products
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card" style="border-radius: 14px; border: none; box-shadow: 0 2px 12px rgba(0,0,0,0.06);">
+            <div class="card-body">
+                <div class="table-responsive border rounded-3">
+                    <table class="table align-middle mb-0">
+                        <thead class="bg-light">
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Waybill / Tracking</th>
+                                <th>Date & Time</th>
+                                <th>Payment</th>
+                                <th>Items</th>
+                                <th>Total Paid</th>
+                                <th>Status</th>
+                                <th class="text-center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="transactionsTableBody">
+                            <tr>
+                                <td colspan="8" class="text-center py-4 text-muted">
+                                    <div class="spinner-border spinner-border-sm text-primary me-2"></div>
+                                    Loading your transaction history...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Cancel Order Modal -->
+<div class="modal fade" id="userCancelOrderModal" tabindex="-1" aria-labelledby="userCancelOrderModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="border-radius: 14px; border: none; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
+            <div class="modal-header border-0 pb-0">
+                <h5 class="modal-title font-weight-bold text-danger" id="userCancelOrderModalLabel">
+                    <i class="ti-close me-1"></i> Cancel Order #<span id="cancelModalOrderId"></span>
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body py-3">
+                <p class="text-muted small mb-3">
+                    Please select the reason for cancelling your order. The reserved items will immediately be returned to stock.
+                </p>
+
+                <div class="mb-3">
+                    <label for="cancelReasonSelect" class="form-label fw-bold text-dark small">
+                        Cancellation Reason <span class="text-danger">*</span>
+                    </label>
+                    <select class="form-select form-select-sm" id="cancelReasonSelect" style="border-radius: 8px;">
+                        <option value="" selected disabled>-- Select a reason --</option>
+                        <option value="Changed my mind">Changed my mind</option>
+                        <option value="Found cheaper price">Found cheaper price</option>
+                        <option value="Order by mistake">Order by mistake</option>
+                        <option value="Delivery too long">Delivery too long</option>
+                        <option value="Incorrect address">Incorrect address</option>
+                        <option value="other">Other reason</option>
+                    </select>
+                </div>
+
+                <div class="mb-3" id="cancelOtherReasonContainer" style="display: none;">
+                    <label for="cancelOtherReasonInput" class="form-label fw-bold text-dark small">
+                        Custom Reason <span class="text-danger">*</span>
+                    </label>
+                    <input type="text" class="form-control form-control-sm" id="cancelOtherReasonInput" 
+                           placeholder="Type reason (8 to 20 letters)..." maxlength="20" style="border-radius: 8px;">
+                    <div class="d-flex justify-content-between align-items-center mt-1">
+                        <small id="cancelReasonFeedback" class="text-muted" style="font-size: 11px;">
+                            Must be between 8 and 20 characters.
+                        </small>
+                        <small id="cancelCharCount" class="text-muted fw-bold font-monospace" style="font-size: 11px;">0/20</small>
+                    </div>
+                </div>
+
+                <div id="cancelModalAlert" class="alert alert-danger py-2 small mb-0 d-none" style="border-radius: 8px;"></div>
+            </div>
+            <div class="modal-footer border-0 pt-0">
+                <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal" style="border-radius: 8px;">Keep Order</button>
+                <button type="button" class="btn btn-danger btn-sm" id="btnConfirmCancelOrder" disabled style="border-radius: 8px;">
+                    <i class="ti-close me-1"></i> Confirm Cancellation
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

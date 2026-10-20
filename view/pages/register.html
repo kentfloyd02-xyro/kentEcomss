@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../assets/css/faith.css">
+    <script src="../../assets/js/public-route-guard.js"></script>
+</head>
+
+<body>
+
+    <div class="card">
+        <div class="left">
+            <img src="../../assets/images/logo/logo_faith.png" alt="UTRO Clothing logo" class="logo">
+            <div class="system-label">E-commerce Management System (EMS)</div>
+            <div class="quote">
+                "Browse unique vintage finds, manage your saved items, unlock exclusive thrift deals, and give great style a second story. Please log in with your thrift account to proceed."
+            </div>
+        </div>
+
+        <div class="right2">
+            <h1>Registration Form</h1>
+            <div class="subtitle">
+                <h2>Sign up to get started with UTRO Clothing</h2>
+                <h3>Fill in the details below</h3>
+            </div>
+
+            <form id="registerForm" class="form-action">
+                <div class="form-group">
+                    <label for="name">Username</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your Username" required oninput="validateUsername()">
+                    <span id="username-error" class="error-msg"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="gmail">Gmail</label>
+                    <input type="email" id="gmail" name="gmail" placeholder="Enter your Gmail Account" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="input-wrap">
+                        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                        <span class="eye-icon" onclick="togglePassword('password')"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirm_password">Confirm Password</label>
+                    <div class="input-wrap">
+                        <input type="password" id="confirm_password" name="confirm_password" placeholder="Enter your Confirm Password" oninput="validatePassword()" required>
+                        <span class="eye-icon" onclick="togglePassword('confirm_password')"></span>
+                    </div>
+                    <span id="password-error" class="error-msg"></span>
+                </div>
+
+                <div class="cf-turnstile" data-sitekey="3x00000000000000000000FF">
+                </div>
+
+                <button type="submit" id="submitReg" class="login-btn">Register</button>
+            </form>
+
+            <div class="links">
+                <div>Already have an account? <a href="login.html">Log In</a>.</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <script src="../../assets/js/faith.js"></script>
+    <script src="../../assets/services/register.js"></script>
+</body>
+
+</html>

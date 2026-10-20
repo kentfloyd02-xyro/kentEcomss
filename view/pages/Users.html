@@ -1,0 +1,136 @@
+<!-- Users Dashboard Page (RBAC Protected) -->
+<div class="row">
+    <!-- Stat Cards -->
+    <div class="col-md-4 grid-margin stretch-card">
+        <div class="card card-tale" style="background: linear-gradient(135deg, #4B49AC, #5B58D6); color: #fff; border-radius: 12px;">
+            <div class="card-body">
+                <p class="mb-2" style="font-size: 14px; opacity: 0.9;">Total Registered Users</p>
+                <h3 class="fs-30 mb-2" id="statTotalUsers" style="font-weight: 700;">0</h3>
+                <p class="mb-0" style="font-size: 12px; opacity: 0.8;">IAS 101 Identity Management</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 grid-margin stretch-card">
+        <div class="card card-dark-blue" style="background: linear-gradient(135deg, #248AFD, #0066d6); color: #fff; border-radius: 12px;">
+            <div class="card-body">
+                <p class="mb-2" style="font-size: 14px; opacity: 0.9;">Administrators</p>
+                <h3 class="fs-30 mb-2" id="statAdminUsers" style="font-weight: 700;">0</h3>
+                <p class="mb-0" style="font-size: 12px; opacity: 0.8;">Full System Privileges (RBAC)</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 grid-margin stretch-card">
+        <div class="card card-light-blue" style="background: linear-gradient(135deg, #57B657, #449d44); color: #fff; border-radius: 12px;">
+            <div class="card-body">
+                <p class="mb-2" style="font-size: 14px; opacity: 0.9;">Standard Users</p>
+                <h3 class="fs-30 mb-2" id="statRegularUsers" style="font-weight: 700;">0</h3>
+                <p class="mb-0" style="font-size: 12px; opacity: 0.8;">Least Privilege Principle</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card stock-card">
+            <div class="card-body">
+                <div class="d-flex flex-column flex-lg-row align-items-lg-center justify-content-between gap-3 mb-4">
+                    <div>
+                        <h4 class="card-title mb-1">
+                            <i class="ti-id-badge text-primary me-2"></i>User Management & RBAC Dashboard
+                        </h4>
+                        <p class="text-muted mb-0">
+                            Authorization and role assignment.
+                        </p>
+                    </div>
+
+                    <div class="d-flex align-items-center gap-2">
+                        <span class="badge bg-info text-white" id="currentUserBadge" style="padding: 8px 12px; font-size: 12px;">
+                            Checking role...
+                        </span>
+                        <button type="button" class="btn btn-sm btn-outline-primary" id="refreshUsersBtn">
+                            <i class="ti-reload me-1"></i> Refresh
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Access Denied Alert (Shown to non-admin users) -->
+                <div id="accessDeniedBanner" class="alert alert-warning d-none" role="alert" style="border-left: 5px solid #ffc107;">
+                    <h5 class="alert-heading mb-1"><i class="ti-lock me-1"></i> Restricted Area: Admin Role Required</h5>
+                    <p class="mb-0">
+                        You are currently signed in as a standard user. In accordance with <strong>Role-Based Access Control (RBAC)</strong>, 
+                        only users with the <code>admin</code> role can view or manage other user accounts.
+                    </p>
+                </div>
+
+                <!-- Users Table -->
+                <div class="table-responsive" id="usersTableWrapper">
+                    <table class="table align-middle stock-table mb-0" id="users-table">
+                        <thead>
+                            <tr>
+                                <th>User ID</th>
+                                <th>Username</th>
+                                <th>Email Address</th>
+                                <th>Assigned Role</th>
+                                <th>Created Date</th>
+                                <th>Last Active</th>
+                                <th class="text-center">Manage Role</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="usersBody">
+                            <tr>
+                                <td colspan="7" class="text-center py-4">
+                                    <div class="spinner-border spinner-border-sm text-primary me-2" role="status"></div>
+                                    Loading users...
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Edit Role Modal -->
+<div class="modal fade" id="roleModal" tabindex="-1" aria-labelledby="roleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="roleModalLabel">Update User Role</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Change role for user <strong id="modalTargetUsername"></strong>:</p>
+                
+                <form id="roleChangeForm">
+                    <input type="hidden" id="modalTargetUserId" />
+                    
+                    <div class="form-check mb-3 p-3 border rounded">
+                        <input class="form-check-input" type="radio" name="userRoleChoice" id="roleAdmin" value="admin">
+                        <label class="form-check-label ms-2" for="roleAdmin">
+                            <strong>Administrator (admin)</strong>
+                            <div class="text-muted small">Full access to inventory, user management, and security controls.</div>
+                        </label>
+                    </div>
+
+                    <div class="form-check p-3 border rounded">
+                        <input class="form-check-input" type="radio" name="userRoleChoice" id="roleUser" value="user">
+                        <label class="form-check-label ms-2" for="roleUser">
+                            <strong>Standard User (user)</strong>
+                            <div class="text-muted small">Restricted access; cannot manage users or alter system configurations.</div>
+                        </label>
+                    </div>
+
+                    <div id="roleModalAlert" class="mt-3"></div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" id="saveRoleBtn">Save Role</button>
+            </div>
+        </div>
+    </div>
+</div>

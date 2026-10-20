@@ -1,0 +1,33 @@
+<nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+    <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+        <a class="navbar-brand brand-logo me-5" href="main.html?page=Dashboard"><img src="../../assets/images/logo/logo.png" class="me-2" alt="logo" /></a>
+        <a class="navbar-brand brand-logo-mini" href="main.html?page=Dashboard"><img src="../../assets/images/logo/logo-mini.png" alt="logo" /></a>
+    </div>
+    <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+        <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+            <span class="icon-menu"></span>
+        </button>
+        <ul class="navbar-nav navbar-nav-right">
+            
+            <li class="nav-item me-2 d-none d-md-flex align-items-center">
+                <span id="navRoleBadge" class="badge bg-secondary text-white py-2 px-3" style="font-size: 11px; letter-spacing: 0.5px;">
+                    ROLE: USER
+                </span>
+            </li>
+            <li class="nav-item nav-profile dropdown">
+                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" id="profileDropdown">
+                    <img src="../../assets/images/logo/logo.jpg" alt="profile" />
+                </a>
+                <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+                    <div class="px-3 py-2 border-bottom text-muted small">
+                        Signed in as: <strong id="navUsernameDisplay">User</strong>
+                    </div>
+                    <a class="dropdown-item" href="" data-action="logout">Logout</a>
+                </div>
+            </li>
+        </ul>
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+            <span class="icon-menu"></span>
+        </button>
+    </div>
+</nav>

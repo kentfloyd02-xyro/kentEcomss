@@ -1,0 +1,98 @@
+<!-- User Shopping Catalog Dashboard (Items List) -->
+<div class="row">
+    <div class="col-md-12 grid-margin">
+        <div class="d-flex justify-content-between align-items-center flex-wrap">
+            <div>
+                <h3 class="font-weight-bold mb-1" id="welcomeUserHeading">Welcome Ecommerce</h3>
+                <h6 class="font-weight-normal text-muted mb-0">
+                    Role: <span class="badge bg-primary text-white" id="welcomeRoleBadge">USER</span>
+                    <span class="ms-2">Browse pre-loved vintage clothing items and add them to your cart.</span>
+                </h6>
+            </div>
+            <div class="mt-2 mt-md-0 d-flex gap-2">
+                <a href="main.html?page=Cart" class="btn btn-outline-primary position-relative" style="border-radius: 8px;">
+                    <i class="ti-shopping-cart me-1"></i> Cart
+                    <span class="badge bg-danger text-white rounded-pill ms-1" id="cartHeaderBadge">0</span>
+                </a>
+                <button class="btn btn-outline-secondary" id="refreshDashboardBtn" style="border-radius: 8px;">
+                    <i class="ti-reload me-1"></i> Refresh
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Quick Stat Cards -->
+<div class="row mb-4">
+    <div class="col-md-4 grid-margin stretch-card mb-3 mb-md-0">
+        <div class="card" style="background: linear-gradient(135deg, #843800, #865C3C); color: #fff; border-radius: 14px; box-shadow: 0 4px 15px rgba(132, 56, 0, 0.2);">
+            <div class="card-body py-3">
+                <div class="d-flex align-items-center justify-content-between">
+                    <div>
+                        <p class="mb-1" style="font-size: 13px; opacity: 0.9;">Available Thrift Items</p>
+                        <h3 class="mb-0 font-weight-bold" id="statAvailableItems">6</h3>
+                    </div>
+                    <div class="rounded-circle d-flex align-items-center justify-content-center" style="width: 48px; height: 48px; background: rgba(255,255,255,0.2);">
+                        <i class="ti-package" style="font-size: 22px;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 grid-margin stretch-card mb-3 mb-md-0">
+        <div class="card" style="background: linear-gradient(135deg, #6f482b, #B4937A); color: #fff; border-radius: 14px; box-shadow: 0 4px 15px rgba(111, 72, 43, 0.2);">
+            <div class="card-body py-3">
+                <div class="d-flex align-items-center justify-content-between">
+                    <div>
+                        <p class="mb-1" style="font-size: 13px; opacity: 0.9;">Items in My Cart</p>
+                        <h3 class="mb-0 font-weight-bold" id="statCartCount">0</h3>
+                    </div>
+                    <div class="rounded-circle d-flex align-items-center justify-content-center" style="width: 48px; height: 48px; background: rgba(255,255,255,0.2);">
+                        <i class="ti-shopping-cart-full" style="font-size: 22px;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 grid-margin stretch-card mb-3 mb-md-0">
+        <div class="card" style="background: linear-gradient(135deg, #865C3C, #c49a7b); color: #fff; border-radius: 14px; box-shadow: 0 4px 15px rgba(196, 154, 123, 0.3);">
+            <div class="card-body py-3">
+                <div class="d-flex align-items-center justify-content-between">
+                    <div>
+                        <p class="mb-1" style="font-size: 13px; opacity: 0.9;">Completed Transactions</p>
+                        <h3 class="mb-0 font-weight-bold" id="statTransactionsCount">0</h3>
+                    </div>
+                    <div class="rounded-circle d-flex align-items-center justify-content-center" style="width: 48px; height: 48px; background: rgba(255,255,255,0.2);">
+                        <i class="ti-receipt" style="font-size: 22px;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- List of Items Catalog -->
+<div class="row">
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card" style="border-radius: 14px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); border: none;">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+                    <div>
+                        <h4 class="card-title mb-1" style="color: #843800;">
+                            <i class="ti-layout-grid2 me-2"></i>Curated Vintage & Thrift Catalog
+                        </h4>
+                        <p class="text-muted mb-0 small">Real-time stock from inventory. Click "Add to Cart" to purchase.</p>
+                    </div>
+                    <input type="text" id="itemSearchBox" class="form-control form-control-sm" placeholder="Search product..." style="max-width: 240px; border-radius: 8px;">
+                </div>
+
+                <div class="row" id="catalogGrid">
+                    <div class="col-12 text-center py-5">
+                        <div class="spinner-border text-primary spinner-border-sm me-2" role="status"></div>
+                        Loading thrift catalog...
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

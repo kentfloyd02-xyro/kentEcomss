@@ -1,0 +1,188 @@
+<h2>Reports Management</h2>
+<div class="button-group m-3">
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createReport">Insert Report</button>
+</div>
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Reports</h4>
+
+        <div class="table-responsive">
+            <table class="table table-hover dataTables expandable-table no-footer">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Report Type</th>
+                        <th>File / Image</th>
+                        <th>Name</th>
+                        <th>Report Date</th>
+                    </tr>
+                </thead>
+                <tbody id="reportsTableBody">
+                    <tr>
+                        <td colspan="5" class="text-center py-4 text-muted">
+                            <div class="spinner-border spinner-border-sm text-primary me-2"></div>
+                            Loading Reports...
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="createReport" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Insert Report</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <form id="insertReportForm" class="forms-sample" enctype="multipart/form-data">
+                <div class="modal-body">
+                    <div class="form-group mb-3">
+                        <label for="report_type">Report Type</label>
+                        <select name="report_type" class="form-select form-control" id="report_type" required>
+                            <option value="" selected disabled>Select Report Type</option>
+                            <option value="Delivered">Delivered</option>
+                            <option value="Shipped">Shipped</option>
+                            <option value="Sales-Weekly">Sales-Weekly</option>
+                            <option value="Sales-Quarterly">Sales-Quarterly</option>
+                            <option value="Sales-Yearly">Sales-Yearly</option>
+                            <option value="Return-Orders">Return-Orders</option>
+                            <option value="Inventory">Inventory</option>
+                        </select>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="file_name">Report File or Image</label>
+                        <input name="report_file" type="file" class="form-control" id="report_file" accept=".pdf,.doc,.docx,.png,.jpg,.jpeg,.webp" required>
+                        <small class="text-muted">Supports images (PNG, JPG) and documents (PDF, DOC).</small>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="name">Report Title / Name</label>
+                        <input name="name" type="text" class="form-control" id="name" placeholder="e.g. Weekly Sales Summary" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" id="saveReportBtn">Save Report</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <p class="card-title">Order Details</p>
+                <p class="font-weight-500">The total number of sessions within the date range. It is the period time a user is actively engaged with your website, page or app, etc</p>
+                <div class="d-flex flex-wrap mb-5">
+                    <div class="me-5 mt-3">
+                        <p class="text-muted">Order value</p>
+                        <h3 class="text-primary fs-30 font-weight-medium" id="reportStatOrderValue">₱ 0.00</h3>
+                    </div>
+                    <div class="me-5 mt-3">
+                        <p class="text-muted">Orders</p>
+                        <h3 class="text-primary fs-30 font-weight-medium" id="reportStatOrdersCount">0</h3>
+                    </div>
+                    <div class="me-5 mt-3">
+                        <p class="text-muted">Users</p>
+                        <h3 class="text-primary fs-30 font-weight-medium" id="reportStatUsersCount">0</h3>
+                    </div>
+                    <div class="mt-3">
+                        <p class="text-muted">Reports Filed</p>
+                        <h3 class="text-primary fs-30 font-weight-medium" id="reportStatReportsCount">0</h3>
+                    </div>
+                </div>
+                <canvas id="order-chart" width="676" height="338" style="display: block; box-sizing: border-box; height: 169px; width: 338px;"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <p class="card-title">Sales Report</p>
+                    <a href="#" class="text-info">View all</a>
+                </div>
+                <p class="font-weight-500">The total number of sessions within the date range. It is the period time a user is actively engaged with your website, page or app, etc</p>
+                <div id="sales-chart-legend" class="chartjs-legend mt-4 mb-2">
+                    <ul>
+                        <li>
+                            <span style="background-color: #98BDFF"></span> Offline Sales
+                        </li>
+
+                        <li>
+                            <span style="background-color: #4B49AC"></span> Online Sales
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <span style="background-color: #98BDFF"></span> Offline Sales
+                        </li>
+
+                        <li>
+                            <span style="background-color: #4B49AC"></span> Online Sales
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <span style="background-color: #98BDFF"></span> Offline Sales
+                        </li>
+
+                        <li>
+                            <span style="background-color: #4B49AC"></span> Online Sales
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <span style="background-color: #98BDFF"></span> Offline Sales
+                        </li>
+
+                        <li>
+                            <span style="background-color: #4B49AC"></span> Online Sales
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <span style="background-color: #98BDFF"></span> Offline Sales
+                        </li>
+
+                        <li>
+                            <span style="background-color: #4B49AC"></span> Online Sales
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <span style="background-color: #98BDFF"></span> Offline Sales
+                        </li>
+
+                        <li>
+                            <span style="background-color: #4B49AC"></span> Online Sales
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <span style="background-color: #98BDFF"></span> Offline Sales
+                        </li>
+
+                        <li>
+                            <span style="background-color: #4B49AC"></span> Online Sales
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <span style="background-color: #98BDFF"></span> Offline Sales
+                        </li>
+
+                        <li>
+                            <span style="background-color: #4B49AC"></span> Online Sales
+                        </li>
+                    </ul>
+                </div>
+                <canvas id="sales-chart" width="676" height="338" style="display: block; box-sizing: border-box; height: 169px; width: 338px;"></canvas>
+            </div>
+        </div>
+    </div>
+</div>

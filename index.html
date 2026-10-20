@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ECOMS</title>
+
+    <script>
+        const landingUrl = new URL("view/pages/home.html", window.location.href);
+        sessionStorage.setItem("ecoms:allowed-public-route", landingUrl.pathname);
+        window.location.replace(landingUrl.href);
+    </script>
+</head>
+
+<body>
+    <p>Loading ECOMS...</p>
+</body>
+
+</html>

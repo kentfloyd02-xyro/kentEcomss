@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UTRO Clothing - Online Thrifting</title>
+
+    <!-- Font Awesome para sa Navigation Icons (Heart, User, Shopping Bag) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Themify Icons (para sa ti-package, ti-user, etc.) -->
+    <link rel="stylesheet" href="../../assets/vendors/ti-icons/css/themify-icons.css">
+
+    <!-- Custom Styles Sheet -->
+    <link rel="stylesheet" href="../../assets/css/style_page.css">
+    <script src="../../assets/js/public-route-guard.js"></script>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="../../assets/images/logo/logo_faith.png" alt="UTRO Clothing Logo">
+            </div>
+
+            <!-- IN-UPDATE ANG HREF DITO -->
+            <ul class="nav-links">
+                <li><a href="#" class="active">HOME</a></li>
+                <li><a href="#categories">CATEGORIES</a></li>
+                <li><a href="#products">PRODUCT</a></li>
+                <li><a href="#about">ABOUT</a></li>
+            </ul>
+
+            <div class="nav-icons">
+                <a href="login.html"><i class="ti-user"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <!-- Diagonal background pills/capsules design -->
+        <div class="bg-shape shape-1"></div>
+        <div class="bg-shape shape-2"></div>
+        <div class="bg-shape shape-3"></div>
+
+        <div class="hero-container">
+            <!-- Left Content -->
+            <div class="hero-text">
+                <h1>Online Thrifting - Good Finds, Better Prices</h1>
+                <p>Curated pre-loved fashion, home goods, and accessories.<br>Sustainable shopping made easy.</p>
+                <a href="../../view/pages/login.html" class="btn-shop">SHOP NOW</a>
+            </div>
+
+            <!-- Right Side Big Logo -->
+            <div class="hero-logo">
+                <img src="../../assets/images/logo/logo_faith.png" alt="UTRO Clothing Large Logo">
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Thrift Picks Section (Nalagyan ng id="products") -->
+    <section class="featured-section" id="products">
+        <div class="featured-container">
+
+            <!-- Section Header -->
+            <div class="section-title">
+                <h2>Featured Thrift Picks</h2>
+                <p>Handpicked daily - limited quantities</p>
+            </div>
+
+            <!-- Search and Filter Bar -->
+            <div class="filter-bar">
+                <input type="text" placeholder="T-shirts, Outwear, Polo..." class="search-input">
+                <button class="btn-filter">FILTER</button>
+                <button class="btn-view-all">VIEW ALL</button>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="products-grid">
+
+                <div class="product-card">
+                    <div class="product-img-box">
+                        <img src="../../assets/images/clothing/c1_item.png" alt="Y2K Classic T-Shirt">
+                    </div>
+                    <div class="product-info">
+                        <span class="category">Men M-XXL</span>
+                        <h3>Y2K Classic T-Shirt</h3>
+                        <div class="product-bottom">
+                            <span class="price">₱ 150.00</span>
+                            <button class="btn-add-cart">Add to cart <i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                        <div class="rating">4.5 <span class="star">★</span></div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="product-card">
+                    <div class="product-img-box">
+                        <img src="../../assets/images/clothing/c2_item1.png" alt="Brown Checkered Polo">
+                    </div>
+                    <div class="product-info">
+                        <span class="category">Men M-XXL</span>
+                        <h3>Brown Checkered Polo</h3>
+                        <div class="product-bottom">
+                            <span class="price">₱ 180.00</span>
+                            <button class="btn-add-cart">Add to cart <i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                        <div class="rating">3.5 <span class="star">★</span></div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="product-card">
+                    <div class="product-img-box">
+                        <img src="../../assets/images/clothing/c3_item.png" alt="Black Denim Jorts">
+                    </div>
+                    <div class="product-info">
+                        <span class="category">Men M-XXL</span>
+                        <h3>Black Denim Jorts</h3>
+                        <div class="product-bottom">
+                            <span class="price">₱ 165.00</span>
+                            <button class="btn-add-cart">Add to cart <i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                        <div class="rating">4.8 <span class="star">★</span></div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="product-card">
+                    <div class="product-img-box">
+                        <img src="../../assets/images/clothing/c4_item.png" alt="Black Adidas Shirt">
+                    </div>
+                    <div class="product-info">
+                        <span class="category">Men M-XXL</span>
+                        <h3>Black Adidas Shirt</h3>
+                        <div class="product-bottom">
+                            <span class="price">₱ 137.00</span>
+                            <button class="btn-add-cart">Add to cart <i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                        <div class="rating">3.0 <span class="star">★</span></div>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="product-card">
+                    <div class="product-img-box">
+                        <img src="../../assets/images/clothing/c5_item.png" alt="Black Leather Jacket">
+                    </div>
+                    <div class="product-info">
+                        <span class="category">Men M-XXL</span>
+                        <h3>Black Leather Jacket</h3>
+                        <div class="product-bottom">
+                            <span class="price">₱ 370.00</span>
+                            <button class="btn-add-cart">Add to cart <i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                        <div class="rating">5.0 <span class="star">★</span></div>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="product-card">
+                    <div class="product-img-box">
+                        <img src="../../assets/images/clothing/c6_item.png" alt="White Knitted Sweater">
+                    </div>
+                    <div class="product-info">
+                        <span class="category">Men M-XXL</span>
+                        <h3>White Knitted Sweater</h3>
+                        <div class="product-bottom">
+                            <span class="price">₱ 240.00</span>
+                            <button class="btn-add-cart">Add to cart <i class="fa-solid fa-cart-shopping"></i></button>
+                        </div>
+                        <div class="rating">4.5 <span class="star">★</span></div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories-section" id="categories">
+        <div class="categories-container">
+
+            <div class="section-header">
+                <h2>Categories & Store Highlights</h2>
+                <p>Quick access to popular thrift categories and trusted shops.</p>
+            </div>
+
+            <!-- Category Filter Buttons (Nalagyan ng data-category attributes) -->
+            <div class="category-buttons">
+                <button class="cat-btn active" data-category="men">MEN</button>
+                <button class="cat-btn" data-category="women">WOMEN</button>
+                <button class="cat-btn" data-category="kids">KIDS</button>
+            </div>
+
+            <!-- Category Grid -->
+            <div class="category-grid">
+
+                <!-- ================= MEN CARDS ================= -->
+                <div class="cat-card" data-category="men">
+                    <div class="cat-img-box"><img src="../../assets/images/clothing/c1_item.png" alt="Men Top"></div>
+                    <div class="cat-label"><span>T-Shirt, Sweats, and Fleece</span></div>
+                </div>
+
+                <div class="cat-card" data-category="men">
+                    <div class="cat-img-box"><img src="../../assets/images/clothing/c2_item1.png" alt="Men Polo"></div>
+                    <div class="cat-label"><span>Polo, Blouse, and Shirt</span></div>
+                </div>
+
+                <div class="cat-card" data-category="men">
+                    <div class="cat-img-box"><img src="../../assets/images/clothing/c3_item.png" alt="Men Bottoms"></div>
+                    <div class="cat-label"><span>Bottoms</span></div>
+                </div>
+
+                <div class="cat-card" data-category="men">
+                    <div class="cat-img-box"><img src="../../assets/images/clothing/c4_item.png" alt="Men Sportswear"></div>
+                    <div class="cat-label"><span>Sportswear</span></div>
+                </div>
+
+                <div class="cat-card" data-category="men">
+                    <div class="cat-img-box"><img src="../../assets/images/clothing/c5_item.png" alt="Men Outwears"></div>
+                    <div class="cat-label"><span>Outwears</span></div>
+                </div>
+
+                <div class="cat-card" data-category="men">
+                    <div class="cat-img-box"><img src="../../assets/images/clothing/c6_item.png" alt="Men Knitwear"></div>
+                    <div class="cat-label"><span>Sweaters & Knitwear</span></div>
+                </div>
+
+                <!-- ================= WOMEN CARDS ================= -->
+                <div class="cat-card" data-category="women" style="display: none;">
+                    <div class="cat-img-box">
+                        <img src="../../assets/images/clothing/w2_item.png" alt="Women Dresses"></div>
+                    <div class="cat-label "><span>Dresses</span></div>
+                </div>
+
+                <div class="cat-card " data-category="women " style="display: none; ">
+                    <div class="cat-img-box "><img src="../../assets/images/clothing/w3_item.png " alt="Women Knitwear "></div>
+                    <div class="cat-label "><span>Crochet</span></div>
+                </div>
+
+                <div class="cat-card " data-category="women " style="display: none; ">
+                    <div class="cat-img-box "><img src="../../assets/images/clothing/w1_item.png " alt="Crop Tops "></div>
+                    <div class="cat-label "><span>Crop Tops </span></div>
+                </div>
+                <div class="cat-card " data-category="women " style="display: none; ">
+                    <div class="cat-img-box "><img src="../../assets/images/clothing/w4_item.png " alt="Dresses "></div>
+                    <div class="cat-label "><span> Skirts</span></div>
+                </div>
+
+                <div class="cat-card " data-category="women " style="display: none; ">
+                    <div class="cat-img-box "><img src="../../assets/images/clothing/w5_item.png " alt="Women Knitwear "></div>
+                    <div class="cat-label "><span> Cardigans</span></div>
+                </div>
+
+                <div class="cat-card " data-category="women " style="display: none; ">
+                    <div class="cat-img-box "><img src="../../assets/images/clothing/w6_item.png " alt="Crop Tops "></div>
+                    <div class="cat-label "><span> Blouses</span></div>
+                </div>
+
+
+                <!-- ================= KIDS CARDS ================= -->
+                <div class="cat-card " data-category="kids " style="display: none; ">
+                    <div class="cat-img-box "><img src="../../assets/images/clothing/k1_item.png " alt="Kids Shirts "></div>
+                    <div class="cat-label "><span>Boys T-Shirts</span></div>
+                </div>
+
+                <div class="cat-card " data-category="kids " style="display: none; ">
+                    <div class="cat-img-box "><img src="../../assets/images/clothing/k2_item.png " alt="Kids Shorts "></div>
+                    <div class="cat-label "><span>Pants & Shorts</span></div>
+                </div>
+
+                <div class="cat-card " data-category="kids " style="display: none; ">
+                    <div class="cat-img-box "><img src="../../assets/images/clothing/k3_item.png " alt="Kids Jackets "></div>
+                    <div class="cat-label "><span>Jackets & Sweaters</span></div>
+                </div>
+                <div class="cat-card " data-category="kids " style="display: none; ">
+                    <div class="cat-img-box "><img src="../../assets/images/clothing/k4_item.png " alt="Kids Shirts "></div>
+                    <div class="cat-label "><span>Girls T-Shirts</span></div>
+                </div>
+
+                <div class="cat-card " data-category="kids " style="display: none; ">
+                    <div class="cat-img-box "><img src="../../assets/images/clothing/k5_item.png " alt="Kids Shorts "></div>
+                    <div class="cat-label "><span>Pants & Shorts</span></div>
+                </div>
+
+                <div class="cat-card " data-category="kids " style="display: none; ">
+                    <div class="cat-img-box "><img src="../../assets/images/clothing/k6_item.png " alt="Kids Jackets "></div>
+                    <div class="cat-label "><span>Jackets & Sweaters</span></div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer Section (Nalagyan ng id="about ") -->
+    <footer class="footer-section " id="about">
+        <div class="footer-container ">
+
+            <!-- Column 1: About -->
+            <div class="footer-col ">
+                <h3>About</h3>
+                <ul>
+                    <li><a href="# ">Utro Clothing - Online Thrift Shop</a></li>
+                    <li><a href="# ">Affordable</a></li>
+                    <li><a href="# ">Good Conditions</a></li>
+                    <li><a href="# ">Community Driver</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 2: Customer Support -->
+            <div class="footer-col ">
+                <h3>Customer Support</h3>
+                <ul>
+                    <li><a href="# ">Returns</a></li>
+                    <li><a href="# ">Cancellations</a></li>
+                    <li><a href="# ">Delivery Help</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Contacts -->
+            <div class="footer-col ">
+                <h3>Contacts</h3>
+                <ul class="contact-list ">
+                    <li>
+                        <i class="fa-solid fa-envelope icon-email "></i>
+                        <span>utroclothing@gmail.com</span>
+                    </li>
+                    <li>
+                        <i class="fa-brands fa-instagram icon-ig "></i>
+                        <span>Utro Clothing - Online Thrift Shop</span>
+                    </li>
+                    <li>
+                        <i class="fa-brands fa-facebook icon-fb "></i>
+                        <span>Shop.UtroClothing</span>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </footer>
+    <!-- Filter & Search JavaScript Logic -->
+    <script>
+        // Elements Selection
+        const catButtons = document.querySelectorAll('.cat-btn');
+        const catCards = document.querySelectorAll('.cat-card');
+        const productCards = document.querySelectorAll('.product-card');
+        const viewAllBtn = document.querySelector('.btn-view-all');
+        const filterBtn = document.querySelector('.btn-filter');
+        const searchInput = document.querySelector('.search-input');
+
+        // 1. Category Switcher (MEN, WOMEN, KIDS)
+        catButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                catButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                const selectedCategory = button.getAttribute('data-category');
+
+                catCards.forEach(card => {
+                    if (card.getAttribute('data-category') === selectedCategory) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // 2. View All Button Logic
+        if (viewAllBtn) {
+            viewAllBtn.addEventListener('click', () => {
+                catButtons.forEach(btn => btn.classList.remove('active'));
+
+                // Ipakita ang lahat ng Category Cards
+                catCards.forEach(card => {
+                    card.style.display = 'flex';
+                });
+
+                // Ipakita rin ang lahat ng Featured Product Cards kung nakatago
+                productCards.forEach(card => {
+                    card.style.display = 'flex';
+                });
+
+                // Lilinisin ang Search Bar
+                if (searchInput) searchInput.value = '';
+
+                // Smooth scroll papunta sa Categories section
+                document.getElementById('categories').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        }
+
+        // 3. Search at Filter Functionality
+        function performSearch() {
+            const query = searchInput.value.toLowerCase().trim();
+
+            // Filter sa Featured Products Grid
+            productCards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const category = card.querySelector('.category').textContent.toLowerCase();
+
+                if (title.includes(query) || category.includes(query)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // Filter sa Categories Grid
+            catCards.forEach(card => {
+                const label = card.querySelector('.cat-label span').textContent.toLowerCase();
+
+                if (label.includes(query)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // I-trigger ang search kapag pinindot ang FILTER button
+        if (filterBtn) {
+            filterBtn.addEventListener('click', performSearch);
+        }
+
+        // Real-time Search habang nagttype sa Search Box (keyup)
+        if (searchInput) {
+            searchInput.addEventListener('keyup', (e) => {
+                if (e.key === 'Enter') {
+                    performSearch();
+                } else if (searchInput.value === '') {
+                    // Kapag binura ang binalik sa walang laman, i-reset ang kasalukuyang active category
+                    const activeBtn = document.querySelector('.cat-btn.active');
+                    if (activeBtn) activeBtn.click();
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
